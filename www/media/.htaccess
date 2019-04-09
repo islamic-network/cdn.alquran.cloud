@@ -1,0 +1,24 @@
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+AddType audio/mp3 .mp3
+Header always set Cache-Control "max-age=2628000, public"
+Header always set Expires "access plus 30 days"
+FileETag  MTime Size
+
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^cdn.alquran.cloud$ [NC]
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTPS}:s on:(s)
+RewriteRule ^ http%1://islamcdn.com/quran%{REQUEST_URI} [R=301,QSA,L]
+
+RewriteCond %{HTTP_HOST} ^do-cdn.alquran.cloud$ [NC]
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTPS}:s on:(s)
+RewriteRule ^ http%1://islamcdn.com/quran%{REQUEST_URI} [R=301,QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

@@ -1,0 +1,1 @@
+This folder runs via the Slim Framework which will control the delivery of media related content like audio and video files and quran images which live below the public folder. This will give us more control over what, when and how to control the flow og thse files.
