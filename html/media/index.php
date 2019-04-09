@@ -19,21 +19,19 @@ $app = new \Slim\App(["settings" => $config]);
 $container = $app->getContainer();
 
 $container['logger'] = function($c) {
-    $logId = uniqid();
     $logStamp = time();
-    $logFile = date('Y-m-d', $logStamp);
     // Create the logger
     $logger = new Logger('CDN');
     // Now add some handlers
-    $logger->pushHandler(new StreamHandler(__DIR__.'/../../logs/' . $logFile . '.log', Logger::INFO));
+    $logger->pushHandler('php://stdout', Logger::INFO));
     return $logger;
 };
 
 $container['audioPath'] = function($c) {
-    return realpath(__DIR__ . '/../../quran/audio/');  
+    return realpath(__DIR__ . '/../../storage/quran/audio/');
 };
 $container['imagesPath'] = function($c) {
-    return realpath(__DIR__ . '/../../quran/images/');  
+    return realpath(__DIR__ . '/../../storage/quran/images/');
 };
 
 /**

@@ -1,0 +1,33 @@
+version: '3.7'
+
+volumes:
+  alquran_cdn:
+
+services:
+  #######################################
+  # App Container
+  #######################################
+  cdn:
+    image: vesica/cdn.alquran.cloud:latest
+    volumes:
+      - alquran_cdn:/var/www/storage
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "tcp://graylog.vafta.com:5140"
+        tag: "alquran-cdn {{.FullID}}"
+    ports:
+      - "8014:8080"
+    deploy:
+      replicas: 2
+      update_config:
+        delay: 10s
+      placement:
+        constraints:
+          - node.role != manager
+          - node.labels.type == worker-app
+      resources:
+        limits:
+          memory: 250M
+        reservations:
+          memory: 32M
