@@ -23,7 +23,7 @@ $container['logger'] = function($c) {
     // Create the logger
     $logger = new Logger('CDN');
     // Now add some handlers
-    $logger->pushHandler('php://stdout', Logger::INFO));
+    $logger->pushHandler('php://stdout', Logger::INFO);
     return $logger;
 };
 
