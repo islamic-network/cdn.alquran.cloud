@@ -18,3 +18,6 @@ RUN rm -rf /var/www/.idea
 RUN chown -R www-data:www-data /var/www/
 
 VOLUME /var/www/storage
+
+ENV LOAD_BALANCER_MODE "0"
+ENV LOAD_BALANCER_KEY "KEY"
