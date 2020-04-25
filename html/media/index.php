@@ -27,9 +27,151 @@ $container['logger'] = function($c) {
     return $logger;
 };
 
+$container['s3'] = function($c) {
+    $s3 = [
+        'ar.ahmedajamy' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.alafasy' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.hudhaify' => [
+            'low' => '32',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.husary' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.husarymujawwad' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.mahermuaiqly' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.minshawi' => [
+            'low' => '128',
+            'medium' => '128',
+            'high' => '128',
+        ],
+        'ar.muhammadayyoub' => [
+            'low' => '128',
+            'medium' => '128',
+            'high' => '128',
+        ],
+        'ar.muhammadjibreel' => [
+            'low' => '',
+            'medium' => '',
+            'high' => '',
+        ],
+        'ar.shaatree' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'fr.leclerc' => [
+            'low' => '128',
+            'medium' => '128',
+            'high' => '128',
+        ],
+        'zh.chinese' => [
+            'low' => '128',
+            'medium' => '128',
+            'high' => '128',
+        ],
+        'ar.abdulbasitmurattal' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '192',
+        ],
+        'ar.abdullahbasfar' => [
+            'low' => '32',
+            'medium' => '64',
+            'high' => '192',
+        ],
+        'ar.abdurrahmaansudais' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '192',
+        ],
+        'ar.hanirifai' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '192',
+        ],
+        'en.walk' => [
+            'low' => '192',
+            'medium' => '192',
+            'high' => '192',
+        ],
+        'ar.ibrahimakhbar' => [
+            'low' => '32',
+            'medium' => '32',
+            'high' => '32',
+        ],
+        'fa.hedayatfarfooladvand' => [
+            'low' => '40',
+            'medium' => '40',
+            'high' => '40',
+        ],
+        'ar.parhizgar' => [
+            'low' => '48',
+            'medium' => '48',
+            'high' => '48',
+        ],
+        'ar.abdulsamad' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '64',
+        ],
+        'ar.aymanswoaid' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '64',
+        ],
+        'ar.hanirifai' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '192',
+        ],
+        'ar.mahermuaiqly' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '128',
+        ],
+        'ar.minshawimujawwad' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '64',
+        ],
+        'ar.saoodshuraym' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '64',
+        ],
+        'ur.khan' => [
+            'low' => '64',
+            'medium' => '64',
+            'high' => '64',
+        ],
+    ];
+
+
+};
 $container['audioPath'] = function($c) {
     return realpath(__DIR__ . '/../../storage/quran/audio/');
 };
+
 $container['imagesPath'] = function($c) {
     return realpath(__DIR__ . '/../../storage/quran/images/');
 };
