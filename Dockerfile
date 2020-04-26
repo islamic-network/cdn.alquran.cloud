@@ -1,4 +1,4 @@
-FROM quay.io/vesica/php73:latest
+FROM islamicnetwork/php74:latest
 
 # Copy files
 RUN cd ../ && rm -rf /var/www/html
