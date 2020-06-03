@@ -1,0 +1,55 @@
+# Deployment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alquran-cloud-cdn
+  namespace: alquran-cloud
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: alquran-cloud-cdn
+  template:
+    metadata:
+      labels:
+        app: alquran-cloud-cdn
+    spec:
+      containers:
+      - name: alquran-cloud-cdn
+        image: islamicnetwork/cdn.alquran.cloud:$COMMIT_TAG
+        env:
+          - name:  S3_BASE_URL
+            value: "https://islamic-network.s3.eu-central-1.wasabisys.com/quran/"
+        livenessProbe:
+          httpGet:
+            path: /media/image/2/4
+            port: 8080
+          initialDelaySeconds: 7
+          periodSeconds: 30
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /media/image/2/4
+            port: 8080
+          initialDelaySeconds: 7
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: 20Mi
+          limits:
+            cpu: "0.1"
+            memory: 128Mi
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+
