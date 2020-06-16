@@ -25,7 +25,7 @@ spec:
         image: islamicnetwork/cdn.alquran.cloud:$COMMIT_TAG
         env:
           - name:  S3_BASE_URL
-            value: "https://islamic-network.s3.eu-central-1.wasabisys.com/quran/"
+            value: "https://cdn.islamic.network/quran/"
         livenessProbe:
           httpGet:
             path: /media/image/2/4
