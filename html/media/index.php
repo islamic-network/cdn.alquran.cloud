@@ -171,7 +171,7 @@ $container['s3'] = function($c) {
             'medium' => '64',
             'high' => '64',
         ],
-         'ru.kuliev' => [
+         'ru.kuliev-audio' => [
             'low' => '128',
             'medium' => '128',
             'high' => '128',
