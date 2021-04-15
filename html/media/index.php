@@ -171,6 +171,11 @@ $container['s3'] = function($c) {
             'medium' => '64',
             'high' => '64',
         ],
+         'ru.kuliev' => [
+            'low' => '128',
+            'medium' => '128',
+            'high' => '128',
+        ],
     ];
 
     return $s3;
