@@ -191,19 +191,20 @@ $app->get('/audio/ayah/{edition}/{number}/low', function (Request $request, Resp
     $number = $request->getAttribute('number');
     $edition = $request->getAttribute('edition');
     $url = $this->s3url . "audio/" . $this->s3[$edition]['low'] . "/" . $edition . "/" . $number . ".mp3";
-    if (($this->urlExists)($url)) {
-        $response = $response->withHeader('Content-Description', 'Audio File Transfer')
-                             ->withHeader('Content-Type', 'audio/mp3')
-                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
-                             ->withHeader('Cache-Control', 'must-revalidate')
-                             ->withHeader('Pragma', 'public');
-        readfile($url);
-    }
-    else { 
-        $response = $response->withStatus(404)->getBody()->write('Not found');
-    }
-
-    return $response; 
+    return $response->withStatus(301)->withHeader('Location', $url);
+//    if (($this->urlExists)($url)) {
+//        $response = $response->withHeader('Content-Description', 'Audio File Transfer')
+//                             ->withHeader('Content-Type', 'audio/mp3')
+//                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
+//                             ->withHeader('Cache-Control', 'must-revalidate')
+//                             ->withHeader('Pragma', 'public');
+//        readfile($url);
+//    }
+//    else {
+//        $response = $response->withStatus(404)->getBody()->write('Not found');
+//    }
+//
+//    return $response;
 });
 
 
@@ -212,19 +213,20 @@ $app->get('/audio/ayah/{edition}/{number}/high', function (Request $request, Res
     $number = $request->getAttribute('number');
     $edition = $request->getAttribute('edition');
     $url = $this->s3url . "audio/" . $this->s3[$edition]['high'] . "/" . $edition . "/" . $number . ".mp3";
-    if (($this->urlExists)($url)) {
-        $response = $response->withHeader('Content-Description', 'Audio File Transfer')
-                             ->withHeader('Content-Type', 'audio/mp3')
-                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
-                             ->withHeader('Cache-Control', 'must-revalidate')
-                             ->withHeader('Pragma', 'public');
-        readfile($url);
-    }
-    else { 
-        $response = $response->withStatus(404)->getBody()->write('Not found');
-    }
-
-    return $response; 
+    return $response->withStatus(301)->withHeader('Location', $url);
+//    if (($this->urlExists)($url)) {
+//        $response = $response->withHeader('Content-Description', 'Audio File Transfer')
+//                             ->withHeader('Content-Type', 'audio/mp3')
+//                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
+//                             ->withHeader('Cache-Control', 'must-revalidate')
+//                             ->withHeader('Pragma', 'public');
+//        readfile($url);
+//    }
+//    else {
+//        $response = $response->withStatus(404)->getBody()->write('Not found');
+//    }
+//
+//    return $response;
 });
 
 
@@ -233,19 +235,20 @@ $app->get('/audio/ayah/{edition}/{number}', function (Request $request, Response
     $number = $request->getAttribute('number');
     $edition = $request->getAttribute('edition');
     $url = $this->s3url . "audio/" . $this->s3[$edition]['medium'] . "/" . $edition . "/" . $number . ".mp3";
-    if (($this->urlExists)($url)) {
-        $response = $response->withHeader('Content-Description', 'Audio File Transfer')
-                             ->withHeader('Content-Type', 'audio/mp3')
-                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
-                             ->withHeader('Cache-Control', 'must-revalidate')
-                             ->withHeader('Pragma', 'public');
-        readfile($url);
-    }
-    else { 
-        $response = $response->withStatus(404)->getBody()->write('Not found');
-    }
-
-    return $response; 
+    return $response->withStatus(301)->withHeader('Location', $url);
+//    if (($this->urlExists)($url)) {
+//        $response = $response->withHeader('Content-Description', 'Audio File Transfer')
+//                             ->withHeader('Content-Type', 'audio/mp3')
+//                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
+//                             ->withHeader('Cache-Control', 'must-revalidate')
+//                             ->withHeader('Pragma', 'public');
+//        readfile($url);
+//    }
+//    else {
+//        $response = $response->withStatus(404)->getBody()->write('Not found');
+//    }
+//
+//    return $response;
 });
 
 
@@ -261,19 +264,20 @@ $app->get('/image/{surah}/{ayah}', function (Request $request, Response $respons
     $surah = $request->getAttribute('surah');
     $ayah = $request->getAttribute('ayah');
     $url = $this->s3url . 'images/' . $surah . '_' . $ayah . '.png';
-    if (($this->urlExists)($url)) {
-        $response = $response->withHeader('Content-Description', 'PNG File Transfer')
-                             ->withHeader('Content-Type', 'image/png')
-                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
-                             ->withHeader('Cache-Control', 'must-revalidate')
-                             ->withHeader('Pragma', 'public');
-        readfile($url);
-    }
-    else { 
-        $response = $response->withStatus(404)->getBody()->write('Not found');
-    }
-
-    return $response; 
+    return $response->withStatus(301)->withHeader('Location', $url);
+//    if (($this->urlExists)($url)) {
+//        $response = $response->withHeader('Content-Description', 'PNG File Transfer')
+//                             ->withHeader('Content-Type', 'image/png')
+//                             ->withHeader('Expires', gmdate ("D, d M Y H:i:s", time() + 31104000) . " GMT")
+//                             ->withHeader('Cache-Control', 'must-revalidate')
+//                             ->withHeader('Pragma', 'public');
+//        readfile($url);
+//    }
+//    else {
+//        $response = $response->withStatus(404)->getBody()->write('Not found');
+//    }
+//
+//    return $response;
 });
 
 /** Can be expensive, so do not run in pipeline
