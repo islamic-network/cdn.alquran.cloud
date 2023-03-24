@@ -29,7 +29,7 @@ spec:
           - containerPort: 9117
             protocol: TCP
       - name: alquran-cloud-cdn
-        image: islamicnetwork/cdn.alquran.cloud:$COMMIT_TAG
+        image: ghcr.io/islamic-network/cdn.alquran.cloud:$COMMIT_TAG
         env:
           - name:  S3_BASE_URL
             value: "https://cdn.islamic.network/quran/"
